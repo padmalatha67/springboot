@@ -1,0 +1,10 @@
+2021-03-09 16:30:43 INFO  SpringbootAssignmentApplication:120 - List of claims related to provider
+2021-03-09 16:30:43 INFO  LoggedInUserDetailsServiceImpl:34 - [ROLE_PROVIDER, ROLE_USER]
+2021-03-09 16:30:43 INFO  LoggedInUserDetailsServiceImpl:38 - [ROLE_PROVIDER
+2021-03-09 16:30:43 INFO  LoggedInUserDetailsServiceImpl:62 - {provider=provider1}
+2021-03-09 16:30:43 INFO  LoggedInUserDetailsServiceImpl:64 - Key = provider, Value = provider1
+2021-03-09 16:30:43 INFO  SpringbootAssignmentApplication:70 - find by provider nameprovider1
+2021-03-09 16:30:43 INFO  SpringbootAssignmentApplication:127 - fetch the provider object based on provider name
+2021-03-09 16:30:43 INFO  SpringbootAssignmentApplication:128 - com.zemoso.springboot.springbootassignment.entity.Provider@223a0929
+2021-03-09 16:30:43 INFO  SpringbootAssignmentApplication:131 - fetch the provider claims based on provider id
+2021-03-09 16:30:43 INFO  SpringbootAssignmentApplication:132 - [Claim{id=7, claimId=3, procedureCode='ICD-9', procedureCodeDescription='dental care', providerId=com.zemoso.springboot.springbootassignment.entity.Provider@223a0929, dateOfService=2021-03-09, userId=com.zemoso.springboot.springbootassignment.entity.User@45d2c561, cost=3500, createdAt=2021-03-09 15:13:08.0}]

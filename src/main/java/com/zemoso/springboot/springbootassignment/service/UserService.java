@@ -1,6 +1,5 @@
 package com.zemoso.springboot.springbootassignment.service;
 
-import com.zemoso.springboot.springbootassignment.entity.Claim;
 import com.zemoso.springboot.springbootassignment.entity.User;
 
 import java.util.List;

@@ -34,17 +34,16 @@ public class ClaimServiceImpl implements ClaimService {
     public Claim findById(int theId) {
         Optional<Claim> result = claimRepository.findById(theId);
 
-        Claim theEmployee = null;
+        Claim theClaim = null;
 
         if (result.isPresent()) {
-            theEmployee = result.get();
+            theClaim = result.get();
         }
         else {
-            // we didn't find the employee
-            throw new RuntimeException("Did not find employee id - " + theId);
+            throw new RuntimeException("Did not find claim id - " + theId);
         }
 
-        return theEmployee;
+        return theClaim;
     }
 
     @Override

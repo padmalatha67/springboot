@@ -3,7 +3,6 @@ package com.zemoso.springboot.springbootassignment.config;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -33,7 +32,6 @@ public class AppConfig {
     public DataSource createDataSource() {
 
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
-        //driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
         driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/spring_assignment?useSSL=false&serverTimezone=UTC");
         driverManagerDataSource.setUsername("padmalatha");
         driverManagerDataSource.setPassword("@6Buji123");

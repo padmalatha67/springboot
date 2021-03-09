@@ -1,8 +1,6 @@
 package com.zemoso.springboot.springbootassignment.controller;
 
-import com.zemoso.springboot.springbootassignment.entity.Claim;
 import com.zemoso.springboot.springbootassignment.entity.User;
-import com.zemoso.springboot.springbootassignment.service.ProviderService;
 import com.zemoso.springboot.springbootassignment.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
+
 import java.util.Date;
 import java.util.List;
 
@@ -18,7 +16,11 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    private UserService userService;
+    public UserService userService;
+
+    private static final String modelAttributeName = "users";
+
+    private static final String userForm = "user-form";
 
     //as we have only one constructor @Autowired is optional
     public UserController( UserService theUserService) {
@@ -30,7 +32,7 @@ public class UserController {
 
 
         List<User> theUser = userService.findAll();
-        theModel.addAttribute("users", theUser);
+        theModel.addAttribute(modelAttributeName, theUser);
 
         return "list-of-users";
 
@@ -42,16 +44,16 @@ public class UserController {
 
 
         User theUser = new User();
-        theModel.addAttribute("users", theUser);
+        theModel.addAttribute(modelAttributeName, theUser);
 
-        return "user-form";
+        return userForm;
     }
 
     @PostMapping("/save")
-    public String saveUser(@ModelAttribute("users") @Valid User users, BindingResult theBindingResult) {
+    public String saveUser(@ModelAttribute(modelAttributeName) @Valid User users, BindingResult theBindingResult) {
 
         if (theBindingResult.hasErrors()) {
-            return "user-form";
+            return userForm;
         }
         else {
             Date utilDate = new Date();
@@ -68,10 +70,10 @@ public class UserController {
 
 
         User theUser = userService.findById(theId);
-        theModel.addAttribute("users", theUser);
+        theModel.addAttribute(modelAttributeName, theUser);
 
 
-        return "user-form";
+        return userForm;
     }
 
     @GetMapping("/delete")

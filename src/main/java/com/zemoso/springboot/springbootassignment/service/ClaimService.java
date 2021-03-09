@@ -16,11 +16,9 @@ public interface ClaimService {
 
     public void deleteById(int theId);
 
-   // public List<Claim> findAllClaimsForSpecificProvider();
 
     public List<Claim> findByProviderId(Provider providerId);
 
-    //public List<Claim> findAllClaimsForSpecificUser();
 
     public List<Claim> findByUserId(User userId);
 }

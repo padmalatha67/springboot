@@ -1,7 +1,6 @@
 package com.zemoso.springboot.springbootassignment.entity;
 
 import com.zemoso.springboot.springbootassignment.service.validation.ProcedureCode;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;

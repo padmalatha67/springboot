@@ -1,7 +1,6 @@
 package com.zemoso.springboot.springbootassignment.service.implementations;
 
 import com.zemoso.springboot.springbootassignment.dao.UserRepository;
-import com.zemoso.springboot.springbootassignment.entity.Claim;
 import com.zemoso.springboot.springbootassignment.entity.User;
 import com.zemoso.springboot.springbootassignment.service.UserService;
 import org.springframework.stereotype.Service;

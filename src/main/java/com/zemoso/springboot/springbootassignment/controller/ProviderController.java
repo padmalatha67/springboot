@@ -1,7 +1,6 @@
 package com.zemoso.springboot.springbootassignment.controller;
 
 
-import com.zemoso.springboot.springbootassignment.dao.ProviderRepository;
 import com.zemoso.springboot.springbootassignment.entity.Provider;
 import com.zemoso.springboot.springbootassignment.service.ProviderService;
 import org.springframework.stereotype.Controller;
@@ -18,6 +17,10 @@ public class ProviderController {
 
     private ProviderService providerService;
 
+    private static final String modelAttributeName = "providers";
+
+    private static final String providerForm = "provider-form";
+
 
     //as we have only one constructor @Autowired is optional
     public ProviderController( ProviderService theProviderService) {
@@ -25,7 +28,7 @@ public class ProviderController {
     }
 
     @GetMapping("/list")
-    private String listOfProviders(Model theModel) {
+    public String listOfProviders(Model theModel) {
 
         // get employees from db
         List<Provider> theProvider = providerService.findAll();
@@ -43,9 +46,9 @@ public class ProviderController {
         // create model attribute to bind form data
         Provider theProvider = new Provider();
 
-        theModel.addAttribute("providers", theProvider);
+        theModel.addAttribute(modelAttributeName, theProvider);
 
-        return "provider-form"; //go to templates/employees then employee-form
+        return providerForm;
     }
 
 
@@ -57,18 +60,18 @@ public class ProviderController {
         Provider theProvider = providerService.findById(theId);
 
         // set employee as a model attribute to pre-populate the form
-        theModel.addAttribute("providers", theProvider);
+        theModel.addAttribute(modelAttributeName, theProvider);
 
         // send over to our form
-        return "provider-form";
+        return providerForm;
     }
 
 
     @PostMapping("/save")
-    public String saveEmployee(@ModelAttribute("providers") @Valid Provider theProvider, BindingResult theBindingResult) {
+    public String saveEmployee(@ModelAttribute(modelAttributeName) @Valid Provider theProvider, BindingResult theBindingResult) {
 
         if (theBindingResult.hasErrors()) {
-            return "provider-form";
+            return providerForm;
         }
         else {
             providerService.save(theProvider);

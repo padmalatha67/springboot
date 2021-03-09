@@ -31,7 +31,7 @@
 			<!--  add our html table here -->
 
 <c:choose>
-                        <c:when test="${empty userClaims}">
+                        <c:when test="${empty providerClaims}">
                             <h2> Sorry No Claims are present </h2>
                         </c:when>
                        <c:otherwise>
